@@ -13,6 +13,7 @@ print(f"Computation device: {device}\n")
 
 # build the model
 model = GNNImageClassificator(in_channels=3, hidden_dim=64).to(device)
+
 # load the best model checkpoint
 best_model_cp = torch.load(os.path.join(best_model_saved_path,'best_model.pth'))
 best_model_epoch = best_model_cp['epoch']
