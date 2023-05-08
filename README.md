@@ -10,14 +10,14 @@ modello di reti, che negli ultimi anni sono diventate oggetto di molti studi in 
 
 Per chi volesse approfondire, il corso indicato (CS224W: Machine Learning with Graphs) è molto ampio e ben fatto, un piccolo riassunto di quello che verrà introdotto è indicato nella tabella in calce:
 
-| Lezione |                      Descrizione                    |     Sintesi       |
-| ------- | --------------------------------------------------- | ----------------- |
-|    1    | Introduzione                                        |                   |
-|    2    | Metodi tradizionali di ML su grafi                  |                   |
-|    3    | Rappresentazione vettoriale di nodi                 |                   |
-|    4    | Propagazione label per la classificazione dei nodi  |                   |
-|    5    | Reti neurali su grafo 1: Modello GNN                |                   |
-|    6    | Reti neurali su grafo 2: Spazio di progettazione    |                   |
+| <p align="center">Lezione</p> |                               <p align="center">Descrizione</p>                           |   <p align="center">Sintesi</p>   |
+| ----------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------- |
+| <p align="center">1</p>       | [Introduzione](Slide/Lezione_1/01-intro_clean.pdf)                                        |                                   |
+| <p align="center">2</p>       | [Metodi tradizionali di ML su grafi](Slide/Lezione_2/02-tradition-ml_clean.pdf)           |                                   |
+| <p align="center">3</p>       | [Rappresentazione vettoriale di nodi](Slide/Lezione_3/03-nodeemb_clean.pdf)               |                                   |
+| <p align="center">4</p>       | [Propagazione label per la classificazione dei nodi](Slide/Lezione_4/04-message_clean.pdf)|                                   |
+| <p align="center">5</p>       | [Reti neurali su grafo 1: Modello GNN](Slide/Lezione_5/05-GNN1_clean.pdf)                 |                                   |
+| <p align="center">6</p>       | [Reti neurali su grafo 2: Spazio di progettazione](Slide/Lezione_6/06-GNN1_clean.pdf)     |                                   |
 
 ## 2. Codice
 
