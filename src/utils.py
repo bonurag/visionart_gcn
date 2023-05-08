@@ -8,7 +8,7 @@ def save_model(epochs, model, optimizer, criterion):
     Function to save the trained model to disk.
     """
     print(f"Saving final model...")
-    best_model_saved_path = 'src/best_model'
+    best_model_saved_path = 'model_weight'
     os.makedirs(best_model_saved_path, exist_ok=True)
     torch.save({
                 'epoch': epochs,
@@ -21,37 +21,37 @@ def save_plots(train_acc, valid_acc, train_loss, valid_loss):
     """
     Function to save the loss and accuracy plots to disk.
     """
-    plot_path = 'src/plot'
+    plot_path = 'result_plot'
     os.makedirs(plot_path, exist_ok=True)
     # accuracy plots
     plt.figure(figsize=(10, 7))
     plt.plot(
         train_acc, color='green', linestyle='-', 
-        label='train accuracy'
+        label='Train Accuracy'
     )
     plt.plot(
         valid_acc, color='blue', linestyle='-', 
-        label='validataion accuracy'
+        label='Validataion Accuracy'
     )
     plt.xlabel('Epochs')
     plt.ylabel('Accuracy')
     plt.legend()
-    plt.savefig(os.path.join(plot_path, 'accuracy.png'))
+    plt.savefig(os.path.join(plot_path, 'Accuracy.png'))
     
     # loss plots
     plt.figure(figsize=(10, 7))
     plt.plot(
         train_loss, color='orange', linestyle='-', 
-        label='train loss'
+        label='Train Loss'
     )
     plt.plot(
         valid_loss, color='red', linestyle='-', 
-        label='validataion loss'
+        label='Validataion Loss'
     )
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
     plt.legend()
-    plt.savefig(os.path.join(plot_path, 'loss.png'))
+    plt.savefig(os.path.join(plot_path, 'Loss.png'))
 
 class SaveBestModel:
     """
@@ -73,7 +73,7 @@ class SaveBestModel:
             print(f"\nBest validation loss: {self.best_valid_loss}")
             print(f"\nSaving best model for epoch: {epoch+1}\n")
             
-            best_model_saved_path = 'src/best_model'
+            best_model_saved_path = 'model_weight'
             os.makedirs(best_model_saved_path, exist_ok=True)
 
             torch.save({

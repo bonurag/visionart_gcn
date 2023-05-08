@@ -4,13 +4,10 @@ from torch_geometric.nn import GATConv
 from typing import List 
 
 class GNNImageClassificator(nn.Module):
-    """
-    See Figure 2 from https://iopscience.iop.org/article/10.1088/1742-6596/1871/1/012071/pdf
-    """
     def __init__(
         self,
         in_channels: int = 3,
-        hidden_dim: int = 152,
+        hidden_dim: int = 64,
         num_classes: int = 10,
     ):
         super().__init__()

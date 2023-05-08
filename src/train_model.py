@@ -1,7 +1,7 @@
-
 import os
 import torch
 import argparse
+import easydict
 import torch.nn as nn
 import torch.optim as optim
 from tqdm.auto import tqdm
@@ -33,18 +33,15 @@ def train(model, trainloader, optimizer, criterion):
         # calculate the accuracy
         _, preds = torch.max(outputs.data, 1)
         train_running_correct += (preds == classes).sum().item()
+
         # backpropagation
         loss.backward()
         # update the optimizer parameters
         optimizer.step()
-    
+
     # loss and accuracy for the complete epoch
     epoch_loss = train_running_loss / counter
     epoch_acc = 100. * (train_running_correct / len(trainloader.dataset))
-
-    train_writer.add_scalar('train_accuracy', epoch_acc, counter)
-    train_writer.add_scalar('train_loss', epoch_loss, counter)
-    train_writer.add_scalar('batch', counter, counter)
 
     return epoch_loss, epoch_acc
 
@@ -64,25 +61,21 @@ def validate(model, testloader, criterion):
             classes = data["classes"]
 
             # forward pass
-            logits = model(batch_node_features=data_node_features, batch_edge_indices=data_edge_indices)
+            outputs = model(batch_node_features=data_node_features, batch_edge_indices=data_edge_indices)
             # calculate the loss
-            loss = criterion(logits, classes)
+            loss = criterion(outputs, classes)
             valid_running_loss += loss.item()
             # calculate the accuracy
-            _, preds = torch.max(logits.data, 1)
+            _, preds = torch.max(outputs.data, 1)
             valid_running_correct += (preds == classes).sum().item()
-        
+
     # loss and accuracy for the complete epoch
     epoch_loss = valid_running_loss / counter
     epoch_acc = 100. * (valid_running_correct / len(testloader.dataset))
 
-    val_writer.add_scalar('val_accuracy', epoch_loss, counter)
-    val_writer.add_scalar('val_loss', epoch_loss, counter)
-    val_writer.add_scalar('batch', counter, counter)
-
     return epoch_loss, epoch_acc
 
-tensorboard_saved_path = 'src/tensorboard_data'
+tensorboard_saved_path = 'tensorboard_data'
 os.makedirs(tensorboard_saved_path, exist_ok=True)
 
 train_writer = SummaryWriter(os.path.join(tensorboard_saved_path, 'train'), 'train')
@@ -93,14 +86,14 @@ train_loader, valid_loader, test_loader = build_train_val_dataloaders()
 
 # learning_parameters 
 lr = 1e-3
-epochs = 64
+epochs = 10
 
 # computation device
 device = ('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Computation device: {device}\n")
 
 # build the model
-model = GNNImageClassificator(in_channels=3, hidden_dim=152).to(device)
+model = GNNImageClassificator(in_channels=3, hidden_dim=64).to(device)
 print(model)
 # total parameters and trainable parameters
 total_params = sum(p.numel() for p in model.parameters())
@@ -132,6 +125,14 @@ for epoch in range(epochs):
     valid_acc.append(valid_epoch_acc)
     print(f"Training loss: {train_epoch_loss:.3f}, training acc: {train_epoch_acc:.3f}")
     print(f"Validation loss: {valid_epoch_loss:.3f}, validation acc: {valid_epoch_acc:.3f}")
+
+    train_writer.add_scalar('Loss/Train', train_epoch_loss, epoch)
+    train_writer.add_scalar('Accuracy/Train', train_epoch_acc, epoch)
+    train_writer.add_scalar('Epoch', epoch, epoch)
+
+    val_writer.add_scalar('Loss/Val', valid_epoch_loss, epoch)
+    val_writer.add_scalar('Accuracy/Val', valid_epoch_acc, epoch)
+    val_writer.add_scalar('Epoch', epoch, epoch)
 
     # save the best model till now if we have the least loss in the current epoch
     save_best_model(

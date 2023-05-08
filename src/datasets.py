@@ -6,7 +6,7 @@ from torch_geometric.datasets import MNISTSuperpixels
 
 # data constants
 BATCH_SIZE = 64
-NUM_WORKERS = 32
+NUM_WORKERS = 0
 
 def build_mnist_superpixels_dataset(train: bool) -> MNISTSuperpixels:
     return MNISTSuperpixels(
