@@ -15,12 +15,12 @@ print(f"Computation device: {device}\n")
 model = GNNImageClassificator(in_channels=3, hidden_dim=64).to(device)
 
 # load the best model checkpoint
-best_model_cp = torch.load(os.path.join(best_model_saved_path,'best_model.pth'))
+best_model_cp = torch.load(os.path.join(best_model_saved_path,'best_model.pth'), map_location=device)
 best_model_epoch = best_model_cp['epoch']
 print(f"Best model was saved at {best_model_epoch} epochs\n")
 
 # load the last model checkpoint
-last_model_cp = torch.load(os.path.join(best_model_saved_path,'final_model.pth'))
+last_model_cp = torch.load(os.path.join(best_model_saved_path,'final_model.pth'), map_location=device)
 last_model_epoch = last_model_cp['epoch']
 print(f"Last model was saved at {last_model_epoch} epochs\n")
 

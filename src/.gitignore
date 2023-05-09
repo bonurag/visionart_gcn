@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 
 #project folder
+mnist-superpixels-dataset/*
+mnist/*

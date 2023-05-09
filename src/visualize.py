@@ -80,7 +80,7 @@ def visualize_first(
     plt.savefig(image_name)
 
 def visualize(image, data):
-    plt.figure(figsize=(17, 8))
+    plt.figure(figsize=(14, 8))
     
     # plot the mnist image
     plt.subplot(1, 2, 1)
