@@ -1,0 +1,4 @@
+{
+    "pythonTestExplorer.testFramework": "unittest",
+    "python.testing.pytestEnabled": true
+}
