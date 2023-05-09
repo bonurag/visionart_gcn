@@ -36,7 +36,7 @@ E' possibile lanciare il codice direttamente da terminale con lo script sottosta
 mentre per quando riguarda il test del modello lanciare quello sottostante.:
 
 ```python
-!python test_model.py
+!python testing_model.py
 ```
 
 Diversamente è stato realizzato un jupyter notebook [MNIST_SuperPixel_GCN](src/MNIST_SuperPixel_GCN.ipynb) che permette di visualizzare anche le curve di accuracy e loss tramite [tensorboardX](https://github.com/lanpa/tensorboardX).
