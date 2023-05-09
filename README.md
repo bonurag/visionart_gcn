@@ -12,7 +12,7 @@ Per chi volesse approfondire, il corso indicato (CS224W: Machine Learning with G
 
 | Lezione | <p align="center">Descrizione</p> | <p align="center">Argomenti Trattati</p> |
 | :---: | --- | --- |
-| 1| [Introduzione e Machine Learning per Grafi](Slide/Lezione_1/01-intro_clean.pdf) | Apprendimento automatico con i grafi <br> Applicazioni e casi d'uso <br> Diversi tipi di compiti:<ul><li>Classificazione nodi</li><li>Classificazione archi</li> <li>Classificazione grafi</li></ul>Modalità rappresentazione del grafo:<ul><li>Diretto</li><li>Non diretto</li><li>Bipartito</li><li>Pesato</li><li>Matrice di adiacenza</li></ul>|
+| 1| [Introduzione e Machine Learning per Grafi](Slide/Lezione_1/01-intro_clean.pdf) | Apprendimento automatico con i grafi <br> Applicazioni e casi d'uso <br> Diversi tipi di compiti:<ul><li>Classificazione nodi</li><li>Classificazione archi</li><li>Classificazione grafi</li></ul>Modalità rappresentazione del grafo:<ul><li>Diretto</li><li>Non diretto</li><li>Bipartito</li><li>Pesato</li><li>Matrice di adiacenza</li></ul>|
 | 2 | [Metodi tradizionali di ML su grafi](Slide/Lezione_2/02-tradition-ml_clean.pdf)  | Pipeline ML tradizionali:<ul><li>Features create a mano</li></ul>Creazione features per grafi:<ul><li>A livello di nodo</li><ul><li>Grado del nodo</li></ul><ul><li>Centralità</li></ul><ul><li>Coefficiente di clustering</li></ul><ul><li>Graphlets</li></ul></ul><ul><li>A livello di link:</li><ul><li>Caratteristiche basate sulla distanza</li></ul><ul><li>Sovrapposizione locale/globale dei nodi vicini</li></ul></ul><ul><li>A livello di grafo:</li><ul><li>Kernel dei graphlets</li></ul><ul><li>Kernels Weisfeiler-Lehman Graph</li></ul>|
 | 3 | [Rappresentazione vettoriale di nodi](Slide/Lezione_3/03-nodeemb_clean.pdf)   | <ul><li>Struttura encoder-decoder</li><li>Misura di similarità dei nodi</li><li>Estensione al Graph embedding</li></ul>|
 | 4 | [Propagazione label per la classificazione dei nodi](Slide/Lezione_4/04-message_clean.pdf) | <ul><li>Sfruttare la correlazione nei grafi per fare previsioni sui nodi</li><li>Tecniche utilizzate<ul><li>Classificazione relazionale</li></ul><ul><li>Classificazione iterativa</li></ul><ul><li>Passaggio di messaggi somma-prodotto(Belief Propagation)</li></ul></li>|
@@ -52,21 +52,11 @@ classification](https://iopscience.iop.org/article/10.1088/1742-6596/1871/1/0120
 
 In questa sezione sono riportati alcuni documenti di interesse utili per eventuali approfondimenti.
 
-<style type="text/css">
-  .tg  {border-collapse:collapse;border-spacing:0;}
-  .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-    overflow:hidden;padding:10px 5px;word-break:normal;}
-  .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-    font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-  .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
-  .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-  .tg .tg-y02l{border-color:inherit;color:#00E;text-align:left;vertical-align:top}
-</style>
 <table class="tg">
   <thead>
     <tr>
       <th class="tg-c3ow" colspan="2">
-        Risorse Per Approfondimenti e Maggiori Dettagli
+        <p align="center">Risorse Per Approfondimenti e Maggiori Dettagli</p>
       </th>
     </tr>
   </thead>
